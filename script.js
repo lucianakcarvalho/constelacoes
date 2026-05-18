@@ -125,14 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const constellationsData = {
         orion: {
             stars: [
-                { id: 'o1', name: 'Betelgeuse', x: 25, y: 25 },
+                { id: 'o1', name: 'Betelgeuse - ALFA', x: 25, y: 25, color: 'red' },
                 { id: 'o2', name: 'Bellatrix', x: 70, y: 30 },
                 { id: 'o3', name: 'Meissa', x: 50, y: 15 },
                 { id: 'o4', name: 'Alnitak', x: 42, y: 50 },
                 { id: 'o5', name: 'Alnilam', x: 50, y: 48 },
                 { id: 'o6', name: 'Mintaka', x: 58, y: 46 },
                 { id: 'o7', name: 'Saiph', x: 35, y: 80 },
-                { id: 'o8', name: 'Rigel', x: 70, y: 75 },
+                { id: 'o8', name: 'Rigel - BETA', x: 70, y: 75 },
                 { id: 'o9', name: 'Pi3 Ori', x: 85, y: 35 },
                 { id: 'o10', name: 'Pi4 Ori', x: 82, y: 50 },
                 { id: 'o11', name: 'Pi5 Ori', x: 75, y: 60 }
@@ -150,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'u3', name: 'Alioth', x: 45, y: 55 },
                 { id: 'u4', name: 'Megrez', x: 40, y: 70 },
                 { id: 'u5', name: 'Phecda', x: 20, y: 80 },
-                { id: 'u6', name: 'Merak', x: 15, y: 60 },
-                { id: 'u7', name: 'Dubhe', x: 35, y: 50 }
+                { id: 'u6', name: 'Merak - BETA', x: 15, y: 60 },
+                { id: 'u7', name: 'Dubhe - ALFA', x: 35, y: 50, color: 'orange' }
             ],
             lines: [
                 ['u1', 'u2'], ['u2', 'u3'], ['u3', 'u4'], 
@@ -160,9 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         cruzeiro_sul: {
             stars: [
-                { id: 'c1', name: 'Rubídea', x: 50, y: 20 },
-                { id: 'c2', name: 'Est. de Magalhães', x: 50, y: 80 },
-                { id: 'c3', name: 'Mimosa', x: 20, y: 45 },
+                { id: 'c1', name: 'Rubídea', x: 50, y: 20, color: 'red' },
+                { id: 'c2', name: 'Est. de Magalhães - ALFA', x: 50, y: 80 },
+                { id: 'c3', name: 'Mimosa - BETA', x: 20, y: 45 },
                 { id: 'c4', name: 'Pálida', x: 80, y: 45 },
                 { id: 'c5', name: 'Intrometida', x: 65, y: 65 }
             ],
@@ -172,10 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         escorpiao: {
             stars: [
-                { id: 'e1', name: 'Graffias', x: 70, y: 15 },
+                { id: 'e1', name: 'Graffias - BETA', x: 70, y: 15 },
                 { id: 'e2', name: 'Dschubba', x: 60, y: 25 },
                 { id: 'e3', name: 'Pi Scorpii', x: 55, y: 35 },
-                { id: 'e4', name: 'Antares', x: 50, y: 45 },
+                { id: 'e4', name: 'Antares - ALFA', x: 50, y: 45, color: 'red' },
                 { id: 'e5', name: 'Wei', x: 45, y: 60 },
                 { id: 'e6', name: 'Zeta', x: 30, y: 75 },
                 { id: 'e7', name: 'Sargas', x: 45, y: 85 },
@@ -231,6 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
             starEl.setAttribute('draggable', 'true');
             starEl.dataset.targetId = star.id;
             starEl.id = `draggable-${index}`;
+            if (star.color === 'red') {
+                starEl.classList.add('red-star');
+            } else if (star.color === 'orange') {
+                starEl.classList.add('orange-star');
+            }
             
             const starLabel = document.createElement('span');
             starLabel.classList.add('star-label');

@@ -413,6 +413,16 @@ select option {
     align-items: center;
 }
 
+.star.red-star {
+    background: radial-gradient(circle, #ffffff, #ff4444 40%, transparent 80%);
+    box-shadow: 0 0 15px #ff4444;
+}
+
+.star.orange-star {
+    background: radial-gradient(circle, #ffffff, #ffa500 40%, transparent 80%);
+    box-shadow: 0 0 15px #ffa500;
+}
+
 .star-label {
     position: absolute;
     top: 25px;
